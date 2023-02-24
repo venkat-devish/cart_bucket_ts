@@ -28,6 +28,7 @@
         justify-content: center;
         align-items: center;
         gap: .5rem;
+        margin-top: 3rem;
     }
 
     &__actions {
@@ -45,6 +46,18 @@
             font-weight: 700;
             font-size: 2rem;
             cursor: pointer;
+
+            &-add {
+                margin-top: 3rem;
+                font-size: 15px;
+                cursor: pointer;
+                transition: all .4s;
+                width: 10rem;
+
+                &:hover {
+                    background-color: var(--color-secondary-hover);
+                }
+            }
         }
 
         &--remove {
