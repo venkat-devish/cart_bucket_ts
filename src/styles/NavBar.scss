@@ -1,0 +1,19 @@
+.navbar {
+    &__container {
+        display: flex;
+        gap: 1em;
+        font-family: var(--font-family);
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    &__active {
+        color: #777;
+    }
+
+    &__inactive {
+        color: #444;
+    }
+}
