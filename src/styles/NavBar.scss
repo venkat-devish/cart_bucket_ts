@@ -1,12 +1,22 @@
 .navbar {
     &__container {
         display: flex;
-        gap: 1em;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1em 2em;
         font-family: var(--font-family);
+        background-color: #232f3e;
+        overflow: hidden;
 
         a {
             text-decoration: none;
+            font-size: 1rem;
         }
+    }
+
+    &__links {
+        display: flex;
+        gap: 1em
     }
 
     &__active {
@@ -14,6 +24,6 @@
     }
 
     &__inactive {
-        color: #444;
+        color: #ccc;
     }
 }

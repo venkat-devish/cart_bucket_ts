@@ -1,5 +1,13 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+
 .app {
     &__routes {
-        margin-left: .5em;
+        margin-left: 1em;
+
     }
 }

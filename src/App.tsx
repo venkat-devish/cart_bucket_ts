@@ -5,7 +5,7 @@ import { NavBar } from "./components";
 
 function App() {
   return (
-    <div className="app">
+    <div style={{ backgroundColor: "#222", height: "100vh" }}>
       <NavBar />
       <div className="app__routes">
         <Routes>

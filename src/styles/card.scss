@@ -1,0 +1,55 @@
+.card {
+    background-color: var(--color-bg-grey);
+    margin-bottom: 2rem;
+    border-radius: 11px 11px 0 0;
+    overflow: hidden;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
+    &__details {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem
+    }
+
+    &__image {
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    &__buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: .5rem;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        &--qty {
+            background-color: var(--color-secondary);
+            border: none;
+            border-radius: 5px;
+            height: 2rem;
+            width: 2rem;
+            color: var(--color-primary);
+            font-weight: 700;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        &--remove {
+            background-color: var(--color-danger);
+            color: var(--color-primary);
+            font-weight: 700;
+            border: none;
+            padding: .5rem;
+            width: 6rem;
+            margin-bottom: 1rem;
+        }
+    }
+}
