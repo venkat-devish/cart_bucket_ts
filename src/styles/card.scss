@@ -8,7 +8,12 @@
     &__details {
         display: flex;
         justify-content: space-between;
-        padding: 0.5rem
+        padding: 0.5rem;
+
+        span {
+            font-weight: bold;
+            color: var(--color-bg-grey-md);
+        }
     }
 
     &__image {
@@ -33,7 +38,7 @@
         &--qty {
             background-color: var(--color-secondary);
             border: none;
-            border-radius: 5px;
+            border-radius: var(--border-primary);
             height: 2rem;
             width: 2rem;
             color: var(--color-primary);
@@ -50,6 +55,13 @@
             padding: .5rem;
             width: 6rem;
             margin-bottom: 1rem;
+            border-radius: var(--border-primary);
+            cursor: pointer;
+            transition: all .4s;
+
+            &:hover {
+                scale: 1.1;
+            }
         }
     }
 }

@@ -13,7 +13,7 @@ const Card = ({ id, name, price, img }: StoreProps) => {
       <img className="card__image" src={img} alt="image" />
       <div className="card__details">
         <h2>{name}</h2>
-        <span>{price}</span>
+        <span>₹ {price.toLocaleString()}</span>
       </div>
       <div className="card__buttons">
         <div className="card__actions">
