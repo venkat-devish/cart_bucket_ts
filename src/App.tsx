@@ -2,12 +2,12 @@ import { Routes, Route } from "react-router-dom";
 import "./styles/app.scss";
 import { About, Store, Home } from "./pages";
 import { NavBar } from "./components";
-import { ShoppingCartProvider } from "./context/ShoppingCartContext";
+import { ShoppingCartContextProvider } from "./context/ShoppingCartContext";
 
 function App() {
   return (
-    <ShoppingCartProvider>
-      <div style={{ backgroundColor: "#222", height: "100vh" }}>
+    <ShoppingCartContextProvider>
+      <div style={{ height: "100vh" }}>
         <NavBar />
         <div className="app__routes">
           <Routes>
@@ -19,7 +19,7 @@ function App() {
           </Routes>
         </div>
       </div>
-    </ShoppingCartProvider>
+    </ShoppingCartContextProvider>
   );
 }
 

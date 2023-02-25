@@ -3,17 +3,25 @@
     margin-bottom: 2rem;
     border-radius: 11px 11px 0 0;
     overflow: hidden;
+    display: inline;
+    height: 22rem;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 
     &__details {
         display: flex;
-        justify-content: space-between;
-        padding: 0.5rem;
+        flex-direction: column;
 
         span {
             font-weight: bold;
             color: var(--color-bg-grey-md);
         }
+    }
+
+    &__info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
     }
 
     &__image {
@@ -28,7 +36,6 @@
         justify-content: center;
         align-items: center;
         gap: .5rem;
-        margin-top: 3rem;
     }
 
     &__actions {
@@ -48,11 +55,12 @@
             cursor: pointer;
 
             &-add {
-                margin-top: 3rem;
                 font-size: 15px;
                 cursor: pointer;
                 transition: all .4s;
                 width: 10rem;
+                width: 25rem;
+                margin: 0 auto;
 
                 &:hover {
                     background-color: var(--color-secondary-hover);

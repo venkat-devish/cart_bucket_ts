@@ -1,3 +1,4 @@
+import useShoppingCartContext from "../context/ShoppingCartContext";
 import "../styles/card.scss";
 import { formatCurrency } from "../utilities/formatCurrency";
 
@@ -9,29 +10,58 @@ type StoreProps = {
 };
 
 const Card = ({ id, name, price, img }: StoreProps) => {
-  const qty: number = 0;
+  const {
+    getItemQuantity,
+    increaseCartItemQuantity,
+    decreaseCartItemQuantity,
+    removeCartItem,
+  } = useShoppingCartContext();
+  const qty: number = getItemQuantity(id);
+
   return (
     <div className="card">
       <img className="card__image" src={img} alt="image" />
       <div className="card__details">
-        <h2>{name}</h2>
-        {qty === 0 ? (
-          <button className="card__actions--qty card__actions--qty-add d-flex">
-            + Add
-          </button>
-        ) : (
-          <div className="card__buttons">
-            <div className="card__actions">
-              <button className="card__actions--qty d-flex">-</button>
-              <span>7 in cart</span>
-              <button className="card__actions--qty d-flex">+</button>
+        <div className="card__info">
+          <h2>{name}</h2>
+          <span>{formatCurrency(price)}</span>
+        </div>
+        <div>
+          {qty === 0 ? (
+            <button
+              className="card__actions--qty card__actions--qty-add d-flex"
+              onClick={() => increaseCartItemQuantity(id)}
+            >
+              + Add
+            </button>
+          ) : (
+            <div className="card__buttons">
+              <div className="card__actions">
+                <button
+                  className="card__actions--qty d-flex"
+                  onClick={() => decreaseCartItemQuantity(id)}
+                >
+                  -
+                </button>
+                <span>{qty} in cart</span>
+                <button
+                  className="card__actions--qty d-flex"
+                  onClick={() => increaseCartItemQuantity(id)}
+                >
+                  +
+                </button>
+              </div>
+              <div>
+                <button
+                  className="card__actions--remove"
+                  onClick={() => removeCartItem(id)}
+                >
+                  Remove
+                </button>
+              </div>
             </div>
-            <div>
-              <button className="card__actions--remove">Remove</button>
-            </div>
-          </div>
-        )}
-        <span>{formatCurrency(price)}</span>
+          )}
+        </div>
       </div>
     </div>
   );
