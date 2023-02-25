@@ -10,16 +10,25 @@ type CartItem = {
 };
 
 interface ShoppingCartContext {
+  openCart: () => void;
+  closeCart: () => void;
   getItemQuantity: (id: number) => number;
   increaseCartItemQuantity: (id: number) => void;
   decreaseCartItemQuantity: (id: number) => void;
   removeCartItem: (id: number) => void;
+  cartQuantity: number;
+  cartItems: CartItem[];
 }
 
 const ShoppingCartContext = createContext({} as ShoppingCartContext);
 
 export const ShoppingCartContextProvider = ({ children }: ProviderChildren) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+
+  const cartQuantity = cartItems.reduce(
+    (quantity, item) => item.quantity + quantity,
+    0
+  );
 
   function getItemQuantity(id: number) {
     return cartItems.find((item) => item.id === id)?.quantity || 0;
@@ -69,6 +78,7 @@ export const ShoppingCartContextProvider = ({ children }: ProviderChildren) => {
     increaseCartItemQuantity,
     decreaseCartItemQuantity,
     removeCartItem,
+    cartQuantity,
   };
   return (
     <ShoppingCartContext.Provider value={ShoppingCartValue}>
