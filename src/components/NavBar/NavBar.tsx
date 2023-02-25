@@ -33,7 +33,9 @@ const NavBar = () => {
           About
         </NavLink>
       </div>
-      <div>{cartQuantity && <CartSVG />}</div>
+      <div>
+        <CartSVG />
+      </div>
     </div>
   );
 };

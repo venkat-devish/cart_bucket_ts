@@ -2,10 +2,10 @@ import useShoppingCartContext from "../context/ShoppingCartContext";
 import "../styles/cartsvg.scss";
 
 const SVGButton = () => {
-  const { cartQuantity } = useShoppingCartContext();
+  const { openCart, cartQuantity } = useShoppingCartContext();
   return (
     <div className="cart">
-      <button className="cart__svg">
+      <button className="cart__svg" onClick={() => openCart()}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 576 512"
