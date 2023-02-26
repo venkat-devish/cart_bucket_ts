@@ -1,0 +1,44 @@
+.cartitem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+
+    img {
+        height: 7rem;
+        width: 12rem;
+    }
+
+    &__prod {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+    }
+
+    &__details {
+        p {
+            color: var(--color-bg-grey-md)
+        }
+
+        span {
+            color: var(--color-bg-grey-md);
+            margin-left: .5rem;
+            font-size: 14px;
+        }
+    }
+
+    &__action {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+    }
+}
+
+.btn-1 {
+    border: 1px solid var(--color-danger);
+    border-radius: 5px;
+    color: var(--color-danger);
+    height: 2rem;
+    width: 2rem;
+    font-size: 12px;
+}

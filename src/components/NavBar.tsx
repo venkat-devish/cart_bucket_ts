@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
-import useShoppingCartContext from "../../context/ShoppingCartContext";
-import { CartSVG } from "../../organisms";
-import "../../styles/NavBar.scss";
+import useShoppingCartContext from "../context/ShoppingCartContext";
+import { CartSVG } from "../organisms";
+import "../styles/NavBar.scss";
 
 const NavBar = () => {
   const { cartQuantity } = useShoppingCartContext();

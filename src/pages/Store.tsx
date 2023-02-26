@@ -5,7 +5,6 @@ import { Card } from "../organisms";
 const Store = () => {
   return (
     <>
-      <h1>Store</h1>
       <div className="store__container">
         {storeItems.map((el) => (
           <Card
