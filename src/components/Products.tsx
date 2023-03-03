@@ -6,7 +6,7 @@ const Products = () => {
   return (
     <div className="products">
       {cartData.map((item) => {
-        return <Card img={item.imgUrl} />;
+        return <Card {...item} />;
       })}
     </div>
   );

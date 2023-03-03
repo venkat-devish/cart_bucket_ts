@@ -1,4 +1,6 @@
 .card {
+    border-radius: var(--border-secondary);
+    overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 
     &__img {
@@ -6,6 +8,48 @@
             height: 14rem;
             width: 100%;
             object-fit: cover;
+        }
+    }
+
+    &__btn {
+        background-color: var(--color-button-primary);
+        color: var(--color-text-primary);
+        font-weight: 500;
+        border: none;
+        display: flex;
+        justify-content: center;
+        margin: .5rem;
+        border-radius: var(--border-primary);
+
+        &-1 {
+            display: flex;
+            justify-content: center;
+        }
+
+        &-2 {
+            height: 2rem;
+            width: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__info {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.2rem 1rem;
+
+        &-name {
+            text-transform: uppercase;
+            font-weight: 500;
         }
     }
 }
