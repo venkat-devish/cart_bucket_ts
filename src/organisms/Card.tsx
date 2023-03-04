@@ -1,26 +1,38 @@
-import Banana from "../../public/imgs/banana.jpg";
+import { useShoppingCartData } from "../context/ShoppingCartContext";
 import "../styles/card.scss";
 
 type CardType = {
+  id: number;
   name: string;
   price: number;
   imgUrl: string;
+  itemQty: number;
 };
 
-const Card = ({ imgUrl, name, price }: CardType) => {
-  const qty: number = 1;
+const Card = ({ id, imgUrl, name, price, itemQty }: CardType) => {
+  const { totalCartItems, addToCart, removeFromCart } = useShoppingCartData();
+  const qty: number = itemQty;
   const actionDiv =
     qty === 0 ? (
       <div className="card__btn-1">
-        <button className="card__btn">Add to cart</button>
+        <button onClick={() => addToCart(id)} className="card__btn">
+          Add to cart
+        </button>
       </div>
     ) : (
       <div className="card__actions">
-        <button className="card__btn card__btn-2">+</button>
+        <button onClick={() => addToCart(id)} className="card__btn card__btn-2">
+          +
+        </button>
         <span>
           {qty} {qty === 1 ? "item" : "items"} in cart
         </span>
-        <button className="card__btn card__btn-2">-</button>
+        <button
+          onClick={() => removeFromCart(id)}
+          className="card__btn card__btn-2"
+        >
+          -
+        </button>
       </div>
     );
   return (
