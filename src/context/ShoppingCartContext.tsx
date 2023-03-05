@@ -1,93 +1,82 @@
-import { createContext, useReducer, ReactNode, useContext } from "react";
-import data from "../data/items.json";
+import { createContext, useContext, useReducer } from "react";
 
 const enum REDUCER_ACTION_TYPES {
   ADD_TO_CART,
   REMOVE_FROM_CART,
 }
 
-type ReducerType = {
-  type: REDUCER_ACTION_TYPES;
-  payload: number;
-};
-
-type ChildrenType = {
-  children: ReactNode;
-};
-
-type CartItem = {
-  id: number;
-  imgUrl: string;
-  name: string;
-  price: number;
-};
-
-type InitState = {
-  items: CartItem[];
-};
-
-interface ShoppingCartContextProps {
-  totalCartItems: number;
-  addToCart: (item: CartItem[]) => void;
+interface ShoppingProps {
+  addToCart: (id: number) => void;
   removeFromCart: (id: number) => void;
 }
-const ShoppingCartContext = createContext({} as ShoppingCartContextProps);
 
-const initialState: InitState = { items: [] };
+const ShoppingCartContext = createContext({} as ShoppingProps);
 
-const reducerFn = (
-  state: InitState,
-  action: ReducerType
-): typeof initialState => {
+const initialCartState: any = { cart: [] };
+const cartReducer = (state: any, action: any) => {
+  const id = action.payload;
   switch (action.type) {
     case REDUCER_ACTION_TYPES.ADD_TO_CART:
-      const cartItem = state.items.find((item) => item.id === action.payload);
+      const isExistig = state.cart?.find((item: any) => item.id === id);
+      if (isExistig) {
+        state.cart.map((item: any) => {
+          if (item.id === id) {
+            item.quantity += 1;
+          }
+        });
+      } else {
+        state.cart = [...state.cart, { id, quantity: 1 }];
+      }
       return {
         ...state,
-        items: state.items.concat(action.payload as CartItem[]),
+        id,
       };
+
     case REDUCER_ACTION_TYPES.REMOVE_FROM_CART:
-      console.log(action.payload);
+      const isExistig2 = state.cart?.find((item: any) => item.id === id);
+      if (isExistig2.quantity === 1) {
+        state.cart = state.cart.filter((item: any) => item.id !== id);
+      } else {
+        state.cart.map((item: any) => {
+          if (item.id === id) {
+            item.quantity -= 1;
+          }
+        });
+      }
       return {
         ...state,
-        items: state.items.filter(
-          (item) => item.id !== (action.payload as number)
-        ),
+        id,
       };
-    default:
-      throw new Error();
   }
 };
 
-export const ShoppingCartContextProvider = ({ children }: ChildrenType) => {
-  const [state, dispatch] = useReducer(reducerFn, initialState);
-  console.log(state);
-  const addToCart = (payload: CartItem[]) => {
+export const ShoppingCartContextProvider = ({ children }: any) => {
+  const [state, dispatch] = useReducer(cartReducer, initialCartState);
+  console.log(state.cart);
+  const addToCart = (id: any) => {
     dispatch({
       type: REDUCER_ACTION_TYPES.ADD_TO_CART,
-      payload: payload,
+      payload: id,
     });
   };
-  const removeFromCart = (id: number) => {
+  const removeFromCart = (id: any) => {
     dispatch({
       type: REDUCER_ACTION_TYPES.REMOVE_FROM_CART,
       payload: id,
     });
   };
-
-  const ShoppingContextValue = {
-    totalCartItems: state.items.length,
-    addToCart,
-    removeFromCart,
-  };
-
   return (
-    <ShoppingCartContext.Provider value={ShoppingContextValue}>
+    <ShoppingCartContext.Provider
+      value={{
+        addToCart,
+        removeFromCart,
+      }}
+    >
       {children}
     </ShoppingCartContext.Provider>
   );
 };
 
-export const useShoppingCartData = () => {
+export const useShoppingCart = () => {
   return useContext(ShoppingCartContext);
 };
