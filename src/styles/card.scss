@@ -1,7 +1,7 @@
 .card {
     border-radius: var(--border-secondary);
     overflow: hidden;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    box-shadow: var(--shadow-primary);
 
     &__img {
         img {
@@ -56,4 +56,17 @@
 
 .decrease {
     background-color: var(--color-danger);
+}
+
+.no-items {
+    img {
+        height: 16rem;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
 }

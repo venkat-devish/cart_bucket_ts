@@ -1,7 +1,8 @@
 import { useShoppingCart } from "../context/ShoppingCartContext";
 
 const CardActions = ({ id }: any) => {
-  const { addToCart, removeFromCart, getCartItemQuantity } = useShoppingCart();
+  const { addToCart, decreaseQtyFromCart, getCartItemQuantity } =
+    useShoppingCart();
   const qty: number = getCartItemQuantity(id);
 
   return (
@@ -23,7 +24,7 @@ const CardActions = ({ id }: any) => {
           </span>
           <button
             className="card__btn card__btn-2 decrease"
-            onClick={() => removeFromCart(id)}
+            onClick={() => decreaseQtyFromCart(id)}
           >
             -
           </button>

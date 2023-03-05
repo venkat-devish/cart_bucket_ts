@@ -2,10 +2,16 @@ import { useShoppingCart } from "../context/ShoppingCartContext";
 import allItems from "../data/items.json";
 import { formatCurrency } from "../utilities/formatCurrency";
 import DeleteIcon from "@mui/icons-material/Delete";
+import IconButton from "@mui/material/IconButton";
 import "../styles/cart_card.scss";
 
 const CartCard = ({ item }: any) => {
-  const { getCartItemQuantity, addToCart, removeFromCart } = useShoppingCart();
+  const {
+    getCartItemQuantity,
+    addToCart,
+    decreaseQtyFromCart,
+    removeFromCart,
+  } = useShoppingCart();
   const addedCartItem = allItems.filter((el: any) => {
     return el.id === item.id;
   });
@@ -35,14 +41,14 @@ const CartCard = ({ item }: any) => {
             </button>
             <button
               className="drawer__btn drawer__btn--decrease"
-              onClick={() => removeFromCart(cartInfo.id)}
+              onClick={() => decreaseQtyFromCart(cartInfo.id)}
             >
               -
             </button>
           </div>
-          <div>
+          <IconButton onClick={() => removeFromCart(cartInfo.id)}>
             <DeleteIcon sx={{ color: "red" }} />
-          </div>
+          </IconButton>
         </div>
       </div>
     </div>

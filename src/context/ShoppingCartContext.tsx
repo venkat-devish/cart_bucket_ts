@@ -28,6 +28,7 @@ interface ShoppingProps {
   cartQuantity: number;
   getCartItemQuantity: (id: number) => number;
   addToCart: (id: number) => void;
+  decreaseQtyFromCart: (id: number) => void;
   removeFromCart: (id: number) => void;
 }
 
@@ -48,6 +49,13 @@ export const ShoppingCartContextProvider = ({ children }: ChildrenType) => {
   const addToCart = (id: number) => {
     dispatch({
       type: REDUCER_ACTION_TYPES.ADD_TO_CART,
+      payload: id,
+    });
+  };
+
+  const decreaseQtyFromCart = (id: number) => {
+    dispatch({
+      type: REDUCER_ACTION_TYPES.DECREASE_CART_QUANTITY,
       payload: id,
     });
   };
@@ -77,8 +85,9 @@ export const ShoppingCartContextProvider = ({ children }: ChildrenType) => {
         closeSidebar,
         cartQuantity,
         addToCart,
-        removeFromCart,
+        decreaseQtyFromCart,
         getCartItemQuantity,
+        removeFromCart,
       }}
     >
       {children}
