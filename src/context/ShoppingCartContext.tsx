@@ -15,13 +15,18 @@ type ChildrenType = {
   children: ReactNode;
 };
 
+export type CartItem = {
+  id: number;
+  quantity: number;
+};
+
 interface ShoppingProps {
-  cartItems: any[];
+  cartItems: CartItem[];
   isOpen: boolean;
   openSidebar: () => void;
   closeSidebar: () => void;
   cartQuantity: number;
-  getCartItemQuantity: (id: number) => any;
+  getCartItemQuantity: (id: number) => number;
   addToCart: (id: number) => void;
   removeFromCart: (id: number) => void;
 }
@@ -40,7 +45,7 @@ export const ShoppingCartContextProvider = ({ children }: ChildrenType) => {
     setisOpen(false);
   };
 
-  const addToCart = (id: any) => {
+  const addToCart = (id: number) => {
     dispatch({
       type: REDUCER_ACTION_TYPES.ADD_TO_CART,
       payload: id,
@@ -55,18 +60,18 @@ export const ShoppingCartContextProvider = ({ children }: ChildrenType) => {
   };
 
   const getCartItemQuantity = (id: number) => {
-    return state.cart.find((item: any) => item.id === id)?.quantity || 0;
+    return state.cart.find((item: CartItem) => item.id === id)?.quantity || 0;
   };
 
   const cartQuantity = state.cart.reduce(
-    (acc: number, curr: any) => curr.quantity + acc,
+    (acc: number, curr: CartItem) => curr.quantity + acc,
     0
   );
 
   return (
     <ShoppingCartContext.Provider
       value={{
-        cartItems: state,
+        cartItems: state.cart,
         isOpen,
         openSidebar,
         closeSidebar,
