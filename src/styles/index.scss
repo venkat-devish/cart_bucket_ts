@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
 
 * {
-    background-color: #999;
+    // background-color: #999;
 }
 
 :root {
@@ -14,8 +14,10 @@
     --color-footer: #031b34;
     --color-cart: #042c54;
     --color-text-primary: #fff;
+    --color-text-secondary: #ECE8DD;
     --color-subtext: #ff8a71;
     --color-button-primary: #362FD9;
+    --color-danger: #FF0303;
 
     --border-primary: 5px;
     --border-secondary: 11px;

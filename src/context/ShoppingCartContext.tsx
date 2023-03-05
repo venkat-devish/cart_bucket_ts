@@ -6,6 +6,7 @@ import {
 } from "../reducers/getCartData";
 
 interface ShoppingProps {
+  cartQuantity: number;
   getCartItemQuantity: (id: any) => any;
   addToCart: (id: number) => void;
   removeFromCart: (id: number) => void;
@@ -21,19 +22,27 @@ export const ShoppingCartContextProvider = ({ children }: any) => {
       payload: id,
     });
   };
+
   const removeFromCart = (id: any) => {
     dispatch({
       type: REDUCER_ACTION_TYPES.REMOVE_FROM_CART,
       payload: id,
     });
   };
+
   const getCartItemQuantity = (id: any) => {
     return state.cart.find((item: any) => item.id === id)?.quantity || 0;
   };
 
+  const cartQuantity = state.cart.reduce(
+    (acc: number, curr: any) => curr.quantity + acc,
+    0
+  );
+
   return (
     <ShoppingCartContext.Provider
       value={{
+        cartQuantity,
         addToCart,
         removeFromCart,
         getCartItemQuantity,
