@@ -6,7 +6,6 @@ export const enum REDUCER_ACTION_TYPES {
 
 export const initialCartState: any = { cart: [] };
 
-
 export const cartReducer = (state: any, action: any) => {
     const id = action.payload;
     const isExisting = state.cart?.find((item: any) => item.id === id);

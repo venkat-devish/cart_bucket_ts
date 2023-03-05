@@ -22,7 +22,7 @@ const CardActions = ({ id }: any) => {
             {qty} {qty === 1 ? "item" : "items"} in cart
           </span>
           <button
-            className="card__btn card__btn-2"
+            className="card__btn card__btn-2 decrease"
             onClick={() => removeFromCart(id)}
           >
             -
