@@ -1,8 +1,7 @@
 import { Offcanvas } from "react-bootstrap";
-import { CartItem, useShoppingCart } from "../context/ShoppingCartContext";
-import cartData from "../data/items.json";
-import CartCard from "../organisms/CartCard";
+import { useShoppingCart } from "../context/ShoppingCartContext";
 import noItem from "../assets/shopping-basket.png";
+import { CartCard } from "../organisms";
 
 const CartSideBar = () => {
   const { isOpen, cartItems, closeSidebar, cartQuantity } = useShoppingCart();

@@ -76,20 +76,20 @@ export const ShoppingCartContextProvider = ({ children }: ChildrenType) => {
     0
   );
 
+  const ShoppingContextValue = {
+    cartItems: state.cart,
+    isOpen,
+    openSidebar,
+    closeSidebar,
+    cartQuantity,
+    addToCart,
+    decreaseQtyFromCart,
+    getCartItemQuantity,
+    removeFromCart,
+  };
+
   return (
-    <ShoppingCartContext.Provider
-      value={{
-        cartItems: state.cart,
-        isOpen,
-        openSidebar,
-        closeSidebar,
-        cartQuantity,
-        addToCart,
-        decreaseQtyFromCart,
-        getCartItemQuantity,
-        removeFromCart,
-      }}
-    >
+    <ShoppingCartContext.Provider value={ShoppingContextValue}>
       {children}
     </ShoppingCartContext.Provider>
   );
