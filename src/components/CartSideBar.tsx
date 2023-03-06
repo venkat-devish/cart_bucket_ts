@@ -4,11 +4,11 @@ import noItem from "../assets/shopping-basket.png";
 import { CartCard } from "../organisms";
 
 const CartSideBar = () => {
-  const { isOpen, cartItems, closeSidebar, cartQuantity } = useShoppingCart();
+  const { isOpen, cartItems, cartQuantity, handleSideBar } = useShoppingCart();
 
   return (
     <>
-      <Offcanvas show={isOpen} onHide={closeSidebar} placement="end">
+      <Offcanvas show={isOpen} onHide={handleSideBar} placement="end">
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Cart Items</Offcanvas.Title>
         </Offcanvas.Header>

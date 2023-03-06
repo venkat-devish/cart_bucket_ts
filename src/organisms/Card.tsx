@@ -1,4 +1,5 @@
 import "../styles/card.scss";
+import { formatCurrency } from "../utilities/formatCurrency";
 import CardActions from "./CardActions";
 
 type CardType = {
@@ -16,7 +17,7 @@ const Card = ({ id, imgUrl, name, price }: CardType) => {
       </div>
       <div className="card__info">
         <span className="card__info-name">{name}</span>
-        <span className="card__info-price">${price}</span>
+        <span className="card__info-price">{formatCurrency(price)}</span>
       </div>
       <CardActions id={id} />
     </div>

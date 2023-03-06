@@ -4,7 +4,7 @@ import { useShoppingCart } from "../context/ShoppingCartContext";
 import CartSideBar from "./CartSideBar";
 
 const Header = () => {
-  const { cartQuantity, openSidebar, cartItems } = useShoppingCart();
+  const { cartQuantity, handleSideBar } = useShoppingCart();
 
   return (
     <>
@@ -13,7 +13,7 @@ const Header = () => {
         <div
           className="header__cart"
           onClick={() => {
-            openSidebar();
+            handleSideBar();
           }}
         >
           <ShoppingCartIcon sx={{ color: "#fff" }} />

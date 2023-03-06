@@ -24,7 +24,7 @@ const CartCard = ({ item }: any) => {
       </div>
       <div className="drawer__info">
         <div className="drawer__info-qty">
-          <p>{cartInfo.name}</p>
+          <h6>{cartInfo.name}</h6>
           <span>x{qty}</span>
         </div>
         <div className="drawer__info-qty">

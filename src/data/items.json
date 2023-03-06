@@ -22,5 +22,23 @@
     "name": "Car",
     "price": 700799,
     "imgUrl": "/public/imgs/car.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Bottle",
+    "price": 450,
+    "imgUrl": "/public/imgs/bottle.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Headset",
+    "price": 5999,
+    "imgUrl": "/public/imgs/headset.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Watch",
+    "price": 4799,
+    "imgUrl": "/public/imgs/watch.jpg"
   }
 ]

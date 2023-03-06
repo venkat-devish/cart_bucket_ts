@@ -19,6 +19,8 @@
         display: flex;
         justify-content: center;
         margin: .5rem;
+        width: 70%;
+        height: 70%;
         border-radius: var(--border-primary);
 
         &-1 {
@@ -49,6 +51,11 @@
 
         &-name {
             text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        &-price {
+            color: var(--color-grey-primary);
             font-weight: 500;
         }
     }

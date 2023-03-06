@@ -23,9 +23,8 @@ export type CartItem = {
 interface ShoppingProps {
   cartItems: CartItem[];
   isOpen: boolean;
-  openSidebar: () => void;
-  closeSidebar: () => void;
   cartQuantity: number;
+  handleSideBar: () => void;
   getCartItemQuantity: (id: number) => number;
   addToCart: (id: number) => void;
   decreaseQtyFromCart: (id: number) => void;
@@ -38,12 +37,8 @@ export const ShoppingCartContextProvider = ({ children }: ChildrenType) => {
   const [isOpen, setisOpen] = useState<boolean>(false);
   const [state, dispatch] = useReducer(cartReducer, initialCartState);
 
-  const openSidebar = () => {
-    setisOpen(true);
-  };
-
-  const closeSidebar = () => {
-    setisOpen(false);
+  const handleSideBar = () => {
+    setisOpen((prev) => !prev);
   };
 
   const addToCart = (id: number) => {
@@ -79,13 +74,12 @@ export const ShoppingCartContextProvider = ({ children }: ChildrenType) => {
   const ShoppingContextValue = {
     cartItems: state.cart,
     isOpen,
-    openSidebar,
-    closeSidebar,
     cartQuantity,
     addToCart,
     decreaseQtyFromCart,
     getCartItemQuantity,
     removeFromCart,
+    handleSideBar,
   };
 
   return (
