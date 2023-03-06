@@ -1,6 +1,6 @@
 import { Offcanvas } from "react-bootstrap";
 import { useShoppingCart } from "../context/ShoppingCartContext";
-import noItem from "../assets/shopping-basket.png";
+import noItem from "../assets/shopping-basket.jpg";
 import { CartCard } from "../organisms";
 
 const CartSideBar = () => {
@@ -18,7 +18,7 @@ const CartSideBar = () => {
               return <CartCard key={el.id} item={el} />;
             })
           ) : (
-            <div className="no-items">
+            <div className="no-items d-flex-v">
               <img src={noItem} alt="No Items in Cart" />
               <h1>No items in cart!</h1>
             </div>
