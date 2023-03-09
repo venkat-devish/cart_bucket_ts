@@ -3,42 +3,42 @@
     "id": 1,
     "name": "Book",
     "price": 599,
-    "imgUrl": "/src/assets/imgs/book.jpg"
+    "imgUrl": "https://rainbow-malabi-853834.netlify.app/src/assets/imgs/book.jpg"
   },
   {
     "id": 2,
     "name": "Computer",
     "price": 100499,
-    "imgUrl": "/src/assets/imgs/computer.jpg"
+    "imgUrl": "https://rainbow-malabi-853834.netlify.app/src/assets/imgs/computer.jpg"
   },
   {
     "id": 3,
     "name": "Banana",
     "price": 99,
-    "imgUrl": "/src/assets/imgs/banana.jpg"
+    "imgUrl": "https://rainbow-malabi-853834.netlify.app/src/assets/imgs/banana.jpg"
   },
   {
     "id": 4,
     "name": "Car",
     "price": 700799,
-    "imgUrl": "/src/assets/imgs/car.jpg"
+    "imgUrl": "https://rainbow-malabi-853834.netlify.app/src/assets/imgs/car.jpg"
   },
   {
     "id": 5,
     "name": "Bottle",
     "price": 450,
-    "imgUrl": "/src/assets/imgs/bottle.jpg"
+    "imgUrl": "https://rainbow-malabi-853834.netlify.app/src/assets/imgs/bottle.jpg"
   },
   {
     "id": 6,
     "name": "Headset",
     "price": 5999,
-    "imgUrl": "/src/assets/imgs/headset.jpg"
+    "imgUrl": "https://rainbow-malabi-853834.netlify.app/src/assets/imgs/headset.jpg"
   },
   {
     "id": 7,
     "name": "Watch",
     "price": 4799,
-    "imgUrl": "/src/assets/imgs/watch.jpg"
+    "imgUrl": "https://rainbow-malabi-853834.netlify.app/src/assets/imgs/watch.jpg"
   }
 ]
